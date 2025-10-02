@@ -1,6 +1,7 @@
 import React, { use, useState } from "react";
 import States from "./States";
 import OrderCard from "./Cards/OrderCard";
+import CookingCard from "./Cards/CookingCard";
 
 const OrderContainer = ({ orderPromise }) => {
   const orders = use(orderPromise);
@@ -9,9 +10,17 @@ const OrderContainer = ({ orderPromise }) => {
 
   const handelOrder = (order) => {
     console.log(order)
+
+    const isExist = cookingItems.find(item => item.id === order.id)
+
+    if(isExist) {
+      return
+    }
+
+
     const newCookingItems =[...cookingItems, order]
     setCookingItems(newCookingItems)
-    
+
   };
   console.log(cookingItems);
 
@@ -37,7 +46,15 @@ const OrderContainer = ({ orderPromise }) => {
         </div>
         <div className="space-y-5 lg:mt-0 mt-10">
           <h2 className="font-bold text-4xl ">Cooking Now</h2>
-          <div className="shadow p-10"></div>
+          <div className="shadow p-10 space-y-5">
+            {
+              cookingItems.map(order=>
+               <CookingCard
+               order={order}
+               key={order.id}></CookingCard>
+              )
+            }
+          </div>
           <h2 className="font-bold text-4xl ">Order Ready</h2>
           <div className="shadow p-10"></div>
         </div>
