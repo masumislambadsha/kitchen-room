@@ -1,7 +1,8 @@
+import { Suspense } from "react";
 import "./App.css";
 import Heading from "./components/Heading";
 import Navbar from "./components/Navbar";
-import States from "./components/States";
+import OrderContainer from "./components/OrderContainer";
 
 const loadOrders = () => fetch('/orders.json'). then(res => res.json())
 
@@ -20,7 +21,12 @@ function App() {
         <Heading>Kitchen Room</Heading>
       </section>
       <section>
-        <States></States>
+        <Suspense fallback={'laoding '}>
+          <OrderContainer
+          orderPromise={orderPromise}
+          ></OrderContainer>
+        </Suspense>
+
       </section>
     </>
   );
