@@ -23,7 +23,7 @@ const OrderCard = ({order}) => {
       </div>
 
       {/* Table Number Badge */}
-      <div className="absolute right-2 top-2 w-10 h-10 flex justify-center items-center bg-primary rounded-full opacity-30 text-white">
+      <div className="absolute right-2 top-2 w-10 h-10 flex justify-center items-center bg-amber-500 rounded-full opacity-70 text-white">
         {order.table_no}
       </div>
     </div>
