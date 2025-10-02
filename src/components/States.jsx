@@ -1,9 +1,9 @@
 import React from "react";
 import { CookingPot, Heater, ScrollText } from "lucide-react";
 
-const States = ({orderTotal}) => {
+const States = ({orderTotal, cookingTotal}) => {
   return (
-    <div className="container mx-auto py-10 gird grid-cols-1 lg:grid-cols-3 gap-5">
+    <div className="container mx-auto py-10 flex flex-col lg:flex-row flex-wrap justify-between  gap-5">
       {/* Total order */}
       <div className="border-4 border-amber-400 border-dotted rounded-2xl border-primary p-5">
         <div className="flex flex-col lg:flex-row items-center justify-between">
@@ -19,7 +19,7 @@ const States = ({orderTotal}) => {
           <Heater className="animate-pulse" color="#fcb700" size={100} />
           <div className="text-xl text-center">
             Current Cooking
-            <h2 className="text-6xl font-bold">{0}</h2>
+            <h2 className="text-6xl font-bold">{cookingTotal}</h2>
           </div>
         </div>
       </div>
