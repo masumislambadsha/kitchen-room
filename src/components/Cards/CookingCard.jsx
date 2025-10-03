@@ -12,7 +12,6 @@ const CookingCard = ({ order,  handleCooked }) => {
       <h3 className="text-xl font-bold text-primary mb-2">
         {order.order_title}
       </h3>
-
       {/* Quantity */}
       <p className="text-lg font-semibold">
         Quantity: <span className="text-gray-700">{order.quantity}</span>
